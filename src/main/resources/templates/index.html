@@ -44,8 +44,8 @@
                 <button type="submit" class="btn btn-default">搜索</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="https://github.com/login/oauth/authorize?client_id=400d793a6b55dfc8f817&redirect_uri=http://localhost:8887/callback&scope=user&state=1">登录</a></li>
-                <li class="dropdown">
+
+                <li class="dropdown" th:if="${session.uesr != null}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">消息中心</a></li>
@@ -53,6 +53,10 @@
                         <li><a href="#">退出登录</a></li>
                     </ul>
                 </li>
+                <li class="dropdown" th:if="${session.uesr == null}">
+                    <a href="https://github.com/login/oauth/authorize?client_id=400d793a6b55dfc8f817&redirect_uri=http://localhost:8887/callback&scope=user&state=1" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">登录 <span class="caret"></span></a>
+                </li>
+
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
